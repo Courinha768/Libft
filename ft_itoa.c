@@ -55,13 +55,12 @@ char	*negative(int n)
 	return (nbr);
 }
 
-char	*idk(int n)
+char	*idk(void)
 {
 	char	*nbr;
 	char	*why;
 	int		i;
 
-	n = 0;
 	i = -1;
 	why = "-2147483648";
 	nbr = (char *)malloc(12);
@@ -87,7 +86,7 @@ char	*path(int n)
 		return (nbr);
 	}
 	if (n == -2147483648)
-		return (idk(n));
+		return (idk());
 	if (n < 0)
 		return (negative(n));
 	return (0);
