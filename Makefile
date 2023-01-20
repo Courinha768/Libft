@@ -6,7 +6,7 @@
 #    By: aappleto <aappleto@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/22 17:56:33 by aappleto          #+#    #+#              #
-#    Updated: 2023/01/07 21:13:05 by aappleto         ###   ########.fr        #
+#    Updated: 2023/01/05 11:33:01 by aappleto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,21 +31,24 @@ AR = ar -crs
 FLAGS = -Wall -Wextra -Werror
 
 .c.o:
-	$(GCC) $(FLAGS) -I includes -c $< -o $(<:.c=.o)
+	@$(GCC) $(FLAGS) -I includes -c $< -o $(<:.c=.o)
 
 $(NAME): $(OBJS) $(HDR)
-	$(AR) $(NAME) $(OBJS)
+	@$(AR) $(NAME) $(OBJS)
+	@echo "\e[1mLibft: binary file created\033[0m"
 
 all: $(NAME)
 
 bonus: $(OBJS) $(BONUS_OBJS) $(HDRS)
-	$(AR) $(NAME) $(OBJS) $(BONUS_OBJS)
+	@$(AR) $(NAME) $(OBJS) $(BONUS_OBJS)
 
 re: clean fclean all
 
 clean:
-	$(RM) $(OBJS) $(BONUS_OBJS)
+	@$(RM) $(OBJS) $(BONUS_OBJS)
+	@echo "\e[1mLibft: Object files deleted\033[0m"
 
 fclean:     clean
-	$(RM) $(NAME)
+	@$(RM) $(NAME)
+	@echo "\e[1mLibft: binary file deleted\033[0m"
 .PHONY: all clean fclean re bonus

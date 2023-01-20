@@ -44,6 +44,11 @@ typedef struct s_stock
 	int		k;
 }	t_stock;
 
+/*
+ *Allocates (with malloc(3)) and returns a copy of
+ *’s1’ with the characters specified in ’set’ removed
+ *from the beginning and the end of the string.
+*/
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	t_stock	v;
@@ -72,10 +77,3 @@ char	*ft_strtrim(char const *s1, char const *set)
 	trim[v.k] = 0;
 	return (trim);
 }
-/*
-int main(void)
-{
-	char *trim = ft_strtrim("x   xxx   xxx", " x");
-	printf("%s\n", trim);
-	free (trim);
-}*/

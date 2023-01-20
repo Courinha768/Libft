@@ -53,6 +53,13 @@ int	sstrlen(char const *s, char c)
 	return (counter);
 }
 
+
+/*
+ *Allocates (with malloc(3)) and returns an array
+ *of strings obtained by splitting ’s’ using the
+ *character ’c’ as a delimiter. The array must end
+ *with a NULL pointer.
+*/
 char	**ft_split(char const *s, char c)
 {
 	int		index;
@@ -81,20 +88,3 @@ char	**ft_split(char const *s, char c)
 	split[split_index] = NULL;
 	return (split);
 }
-
-// int	main(int ac, char **av)
-// {
-// 	char	**split;
-// 	int		i;
-
-// 	ac = 0;
-// 	i = 0;
-// 	av[0] = 0;
-// 	split = ft_split("  tripouille  42", ' ');
-// 	while (split[i])
-// 	{
-// 		// printf("[%d]", i);
-// 		printf("%s\n", split[i]);
-// 		i++;
-// 	}
-// }

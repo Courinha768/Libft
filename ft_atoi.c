@@ -39,10 +39,3 @@ int	ft_atoi(char *str)
 		nb = -nb;
 	return ((int)nb);
 }
-/*
-int	main(int ac, char **av)
-{
-	ac = 0;
-	printf("%d\n", atoi(av[1]));
-	printf("%d\n", ft_atoi(av[1]));
-}*/

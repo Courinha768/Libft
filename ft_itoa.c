@@ -55,12 +55,13 @@ char	*negative(int n)
 	return (nbr);
 }
 
-char	*idk(void)
+char	*idk(int n)
 {
 	char	*nbr;
 	char	*why;
 	int		i;
 
+	n = 0;
 	i = -1;
 	why = "-2147483648";
 	nbr = (char *)malloc(12);
@@ -69,6 +70,7 @@ char	*idk(void)
 	while (why[++i])
 		nbr[i] = why[i];
 	nbr[i] = 0;
+	(void)n;
 	return (nbr);
 }
 
@@ -86,12 +88,17 @@ char	*path(int n)
 		return (nbr);
 	}
 	if (n == -2147483648)
-		return (idk());
+		return (idk(n));
 	if (n < 0)
 		return (negative(n));
 	return (0);
 }
 
+/*
+ *Allocates (with malloc(3)) and returns a string
+ *representing the integer received as an argument.
+ *Negative numbers must be handled.
+*/
 char	*ft_itoa(int n)
 {
 	int		i;
@@ -120,24 +127,3 @@ char	*ft_itoa(int n)
 	ft_invert(nbr, i, 0);
 	return (nbr);
 }
-/*
-static void		ft_print_result(char *s)
-{
-	int		len;
-
-	if (!s)
-		write(1, "NULL", 4);
-	else
-	{
-		len = 0;
-		while (s[len])
-			len++;
-		write(1, s, len);
-		free(s);
-	}
-}
-
-int	main(void)
-{
-	ft_print_result(ft_itoa(-2147483648));
-}*/
